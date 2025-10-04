@@ -1,7 +1,12 @@
+import { useState } from "react";
 import { User, CGMReading, MoodEntry } from "@/types/user";
 import { Card } from "@/components/ui/card";
-import { Activity, Brain, Utensils, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Activity, Brain, Utensils, TrendingUp, Sparkles, Send } from "lucide-react";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { useToast } from "@/hooks/use-toast";
 
 interface HealthDashboardProps {
   user: User;
@@ -10,6 +15,10 @@ interface HealthDashboardProps {
 }
 
 export const HealthDashboard = ({ user, cgmHistory, moodHistory }: HealthDashboardProps) => {
+  const { toast } = useToast();
+  const [foodLog, setFoodLog] = useState("");
+  const [isGeneratingMealPlan, setIsGeneratingMealPlan] = useState(false);
+
   // Mock data for demonstration
   const mockCGMData = cgmHistory || Array.from({ length: 7 }, (_, i) => ({
     timestamp: new Date(Date.now() - (6 - i) * 24 * 60 * 60 * 1000),
@@ -43,6 +52,37 @@ export const HealthDashboard = ({ user, cgmHistory, moodHistory }: HealthDashboa
   };
 
   const status = getGlucoseStatus(user.latest_cgm);
+
+  const handleLogFood = () => {
+    if (!foodLog.trim()) {
+      toast({
+        title: "Error",
+        description: "Please enter food details before logging.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // In a real app, this would call the Food Intake Agent
+    toast({
+      title: "Food Logged",
+      description: `Logged: ${foodLog}`,
+    });
+    setFoodLog("");
+  };
+
+  const handleGenerateMealPlan = () => {
+    setIsGeneratingMealPlan(true);
+    
+    // Simulate API call to Meal Planner Agent
+    setTimeout(() => {
+      toast({
+        title: "Meal Plan Generated",
+        description: `Personalized meal plan created for ${user.first_name} based on ${user.dietary_preference} diet and glucose level of ${user.latest_cgm} mg/dL.`,
+      });
+      setIsGeneratingMealPlan(false);
+    }, 2000);
+  };
 
   return (
     <div className="space-y-6">
@@ -153,6 +193,72 @@ export const HealthDashboard = ({ user, cgmHistory, moodHistory }: HealthDashboa
               />
             </BarChart>
           </ResponsiveContainer>
+        </Card>
+      </div>
+
+      {/* Action Cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Log Food Form */}
+        <Card className="p-6 shadow-lg">
+          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <Utensils className="w-5 h-5 text-accent" />
+            Log Food Intake
+          </h3>
+          <div className="space-y-4">
+            <div>
+              <Label htmlFor="food-log">What did you eat?</Label>
+              <Textarea
+                id="food-log"
+                placeholder="e.g., Grilled chicken breast with quinoa and steamed vegetables"
+                value={foodLog}
+                onChange={(e) => setFoodLog(e.target.value)}
+                className="mt-2 min-h-[100px]"
+              />
+            </div>
+            <Button 
+              onClick={handleLogFood}
+              className="w-full gap-2"
+            >
+              <Send className="w-4 h-4" />
+              Log Food
+            </Button>
+          </div>
+        </Card>
+
+        {/* Meal Plan Generator */}
+        <Card className="p-6 shadow-lg">
+          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-primary" />
+            AI Meal Planner
+          </h3>
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Generate a personalized meal plan based on your health profile, current glucose levels, and dietary preferences.
+            </p>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Diet Type:</span>
+                <span className="font-medium capitalize">{user.dietary_preference}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Current Glucose:</span>
+                <span className="font-medium">{user.latest_cgm} mg/dL</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Current Mood:</span>
+                <span className="font-medium">{user.mood}</span>
+              </div>
+            </div>
+            <Button 
+              onClick={handleGenerateMealPlan}
+              disabled={isGeneratingMealPlan}
+              className="w-full gap-2"
+              size="lg"
+            >
+              <Sparkles className="w-4 h-4" />
+              {isGeneratingMealPlan ? "Generating..." : "Generate Meal Plan"}
+            </Button>
+          </div>
         </Card>
       </div>
 
