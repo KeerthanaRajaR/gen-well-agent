@@ -18,6 +18,12 @@ export const HealthDashboard = ({ user, cgmHistory, moodHistory }: HealthDashboa
   const { toast } = useToast();
   const [foodLog, setFoodLog] = useState("");
   const [isGeneratingMealPlan, setIsGeneratingMealPlan] = useState(false);
+  const [generatedMealPlan, setGeneratedMealPlan] = useState<Array<{
+    meal: string;
+    time: string;
+    description: string;
+    macros: { carbs: number; protein: number; fat: number; calories: number };
+  }> | null>(null);
 
   // Mock data for demonstration
   const mockCGMData = cgmHistory || Array.from({ length: 7 }, (_, i) => ({
@@ -76,6 +82,73 @@ export const HealthDashboard = ({ user, cgmHistory, moodHistory }: HealthDashboa
     
     // Simulate API call to Meal Planner Agent
     setTimeout(() => {
+      // Generate mock meal plan based on user's dietary preference
+      const mealPlans = {
+        vegetarian: [
+          {
+            meal: "Breakfast",
+            time: "8:00 AM",
+            description: "Oatmeal with berries, almonds, and Greek yogurt",
+            macros: { carbs: 45, protein: 15, fat: 12, calories: 350 }
+          },
+          {
+            meal: "Lunch",
+            time: "1:00 PM",
+            description: "Quinoa Buddha bowl with roasted vegetables, chickpeas, and tahini dressing",
+            macros: { carbs: 52, protein: 18, fat: 16, calories: 420 }
+          },
+          {
+            meal: "Dinner",
+            time: "7:00 PM",
+            description: "Lentil curry with brown rice and steamed broccoli",
+            macros: { carbs: 58, protein: 20, fat: 10, calories: 400 }
+          }
+        ],
+        vegan: [
+          {
+            meal: "Breakfast",
+            time: "8:00 AM",
+            description: "Smoothie bowl with banana, spinach, chia seeds, and plant-based protein",
+            macros: { carbs: 48, protein: 20, fat: 14, calories: 380 }
+          },
+          {
+            meal: "Lunch",
+            time: "1:00 PM",
+            description: "Tofu stir-fry with mixed vegetables and quinoa",
+            macros: { carbs: 50, protein: 22, fat: 15, calories: 410 }
+          },
+          {
+            meal: "Dinner",
+            time: "7:00 PM",
+            description: "Black bean tacos with avocado, salsa, and corn tortillas",
+            macros: { carbs: 55, protein: 18, fat: 16, calories: 425 }
+          }
+        ],
+        "non-vegetarian": [
+          {
+            meal: "Breakfast",
+            time: "8:00 AM",
+            description: "Scrambled eggs with whole wheat toast and avocado",
+            macros: { carbs: 35, protein: 25, fat: 18, calories: 400 }
+          },
+          {
+            meal: "Lunch",
+            time: "1:00 PM",
+            description: "Grilled chicken breast with sweet potato and green beans",
+            macros: { carbs: 45, protein: 35, fat: 12, calories: 440 }
+          },
+          {
+            meal: "Dinner",
+            time: "7:00 PM",
+            description: "Baked salmon with quinoa and roasted asparagus",
+            macros: { carbs: 42, protein: 38, fat: 20, calories: 500 }
+          }
+        ]
+      };
+
+      const selectedPlan = mealPlans[user.dietary_preference as keyof typeof mealPlans] || mealPlans["non-vegetarian"];
+      setGeneratedMealPlan(selectedPlan);
+      
       toast({
         title: "Meal Plan Generated",
         description: `Personalized meal plan created for ${user.first_name} based on ${user.dietary_preference} diet and glucose level of ${user.latest_cgm} mg/dL.`,
@@ -143,8 +216,16 @@ export const HealthDashboard = ({ user, cgmHistory, moodHistory }: HealthDashboa
           <ResponsiveContainer width="100%" height={250}>
             <LineChart data={cgmChartData}>
               <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-              <XAxis dataKey="date" fontSize={12} />
-              <YAxis domain={[60, 300]} fontSize={12} />
+              <XAxis 
+                dataKey="date" 
+                fontSize={12}
+                label={{ value: 'Date', position: 'insideBottom', offset: -5 }}
+              />
+              <YAxis 
+                domain={[60, 300]} 
+                fontSize={12}
+                label={{ value: 'Glucose (mg/dL)', angle: -90, position: 'insideLeft' }}
+              />
               <Tooltip 
                 contentStyle={{ 
                   backgroundColor: 'hsl(var(--card))',
@@ -171,8 +252,16 @@ export const HealthDashboard = ({ user, cgmHistory, moodHistory }: HealthDashboa
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={moodChartData}>
               <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-              <XAxis dataKey="date" fontSize={12} />
-              <YAxis domain={[0, 5]} fontSize={12} />
+              <XAxis 
+                dataKey="date" 
+                fontSize={12}
+                label={{ value: 'Date', position: 'insideBottom', offset: -5 }}
+              />
+              <YAxis 
+                domain={[0, 5]} 
+                fontSize={12}
+                label={{ value: 'Mood Score', angle: -90, position: 'insideLeft' }}
+              />
               <Tooltip 
                 content={({ active, payload }) => {
                   if (active && payload && payload.length) {
@@ -258,6 +347,42 @@ export const HealthDashboard = ({ user, cgmHistory, moodHistory }: HealthDashboa
               <Sparkles className="w-4 h-4" />
               {isGeneratingMealPlan ? "Generating..." : "Generate Meal Plan"}
             </Button>
+
+            {/* Display Generated Meal Plan */}
+            {generatedMealPlan && (
+              <div className="mt-6 space-y-4">
+                <h4 className="font-semibold text-sm">Your Personalized Meal Plan</h4>
+                {generatedMealPlan.map((meal, index) => (
+                  <Card key={index} className="p-4 bg-muted/30">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <h5 className="font-semibold">{meal.meal}</h5>
+                        <p className="text-xs text-muted-foreground">{meal.time}</p>
+                      </div>
+                    </div>
+                    <p className="text-sm mb-3">{meal.description}</p>
+                    <div className="grid grid-cols-4 gap-2 text-xs">
+                      <div className="text-center">
+                        <p className="font-medium text-primary">{meal.macros.carbs}g</p>
+                        <p className="text-muted-foreground">Carbs</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="font-medium text-secondary">{meal.macros.protein}g</p>
+                        <p className="text-muted-foreground">Protein</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="font-medium text-accent">{meal.macros.fat}g</p>
+                        <p className="text-muted-foreground">Fat</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="font-medium">{meal.macros.calories}</p>
+                        <p className="text-muted-foreground">Calories</p>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            )}
           </div>
         </Card>
       </div>
