@@ -1,0 +1,101 @@
+user_id,first_name,last_name,city,dietary_preference,medical_conditions,physical_limitations,latest_cgm,mood
+1001,Tanya,Ramsey,East John,non-vegetarian,None,Mobility Issues (mild),350,Excited
+1002,James,Sawyer,Lake Douglaschester,pescatarian,None,Joint Pain (knee),350,Excited
+1003,Kevin,King,New Victor,pescatarian,None,Swallowing Difficulties,81,Happy
+1004,Hannah,Shaw,Hurststad,vegan,None,Back Pain (chronic),134,Stressed
+1005,Melanie,Flowers,Nicoleport,non-vegetarian,Seasonal Allergies,Joint Pain (knee),169,Happy
+1006,Stephen,Garcia,Nathanstad,pescatarian,None,None,152,Tired
+1007,Valerie,Mcfarland,Debrafort,vegetarian,Type 2 Diabetes,Mobility Issues (mild),85,Excited
+1008,Tanya,Gordon,West Carmen,non-vegetarian,None,Back Pain (chronic),127,Tired
+1009,Robert,Clark,Markview,vegetarian,None,Joint Pain (knee),179,Happy
+1010,Devin,Thomas,Joseburgh,vegan,High Cholesterol,Back Pain (chronic),178,Excited
+1011,George,Olson,West Erichaven,non-vegetarian,None,Back Pain (chronic),124,Anxious
+1012,Edwin,Lee,Jesseland,vegetarian,Asthma,Swallowing Difficulties,98,Stressed
+1013,Joel,Barajas,Elizabethburgh,vegan,GERD,Swallowing Difficulties,103,Anxious
+1014,Jacqueline,Sullivan,Perezfort,pescatarian,None,None,104,Excited
+1015,Suzanne,Fuller,Tannerville,vegan,None,None,127,Tired
+1016,Tyler,Fisher,Christophermouth,vegetarian,None,Swallowing Difficulties,89,Happy
+1017,Troy,Walters,Chavezchester,vegan,None,Joint Pain (knee),109,Neutral
+1018,Courtney,Cunningham,Mckinneyland,vegetarian,None,Joint Pain (knee),144,Stressed
+1019,Maria,Shaw,Lake Cherylberg,pescatarian,Type 2 Diabetes,Mobility Issues (mild),103,Tired
+1020,Robyn,Robertson,Craigshire,non-vegetarian,None,Swallowing Difficulties,118,Neutral
+1021,Jennifer,Mullins,West Lindatown,pescatarian,Hypertension,Joint Pain (knee),93,Excited
+1022,Trevor,Frank,Jacobfurt,non-vegetarian,None,Back Pain (chronic),137,Excited
+1023,Chris,Wise,Lake Catherinemouth,pescatarian,None,Mobility Issues (mild),135,Excited
+1024,David,Marks,Tiffanyside,vegan,Asthma,Joint Pain (knee),139,Tired
+1025,Morgan,Gill,Port Jenniferchester,non-vegetarian,Type 2 Diabetes,Mobility Issues (mild),124,Excited
+1026,Amy,Davis,East Priscillaville,vegetarian,Hypertension,Back Pain (chronic),130,Anxious
+1027,Brendan,Bush,Lewismouth,pescatarian,Asthma,None,156,Happy
+1028,David,Moore,Cookburgh,pescatarian,None,Back Pain (chronic),143,Stressed
+1029,Jason,Lowe,Lake Loriborough,non-vegetarian,None,Swallowing Difficulties,91,Happy
+1030,Maria,Johnson,Boydtown,vegan,High Cholesterol,Back Pain (chronic),128,Happy
+1031,Dylan,Ward,Victorchester,vegan,None,Swallowing Difficulties,167,Happy
+1032,Steven,Baker,Maryville,pescatarian,None,Joint Pain (knee),141,Anxious
+1033,Barbara,Jenkins,Lake Jennifer,vegetarian,None,Mobility Issues (mild),142,Anxious
+1034,Dana,Williams,Josephside,non-vegetarian,None,Swallowing Difficulties,150,Stressed
+1035,Peter,Stephens,Port Mary,vegan,Type 2 Diabetes,Back Pain (chronic),99,Neutral
+1036,Kyle,Clements,Pattersonside,vegetarian,None,Swallowing Difficulties,130,Anxious
+1037,Daniel,Mcbride,East Joseph,vegetarian,Asthma,Swallowing Difficulties,172,Excited
+1038,Isaac,Anderson,East Eileen,vegan,None,Swallowing Difficulties,85,Neutral
+1039,David,Newton,South Amy,vegan,Hypertension,None,158,Happy
+1040,Judy,Cook,Kevinport,vegetarian,Type 2 Diabetes,Swallowing Difficulties,145,Happy
+1041,Angela,Dominguez,South Cindymouth,vegan,None,Joint Pain (knee),83,Happy
+1042,Heidi,Ramos,South Tonyafurt,vegan,None,Swallowing Difficulties,167,Happy
+1043,Kylie,Hall,Robertberg,vegan,Type 2 Diabetes,Back Pain (chronic),149,Tired
+1044,Bridget,Davis,Port Steven,pescatarian,None,None,148,Tired
+1045,Beth,Hamilton,Tylerborough,vegetarian,Hypertension,None,82,Tired
+1046,Donald,Williams,Tracihaven,pescatarian,Type 2 Diabetes,None,160,Excited
+1047,Melissa,Brown,Bakerland,vegan,None,Joint Pain (knee),157,Happy
+1048,Kara,Brewer,Port Keithfurt,vegan,Hypothyroidism,Swallowing Difficulties,174,Stressed
+1049,Kevin,Perez,Stewartstad,vegetarian,None,Joint Pain (knee),160,Anxious
+1050,Dale,Garner,Veronicaborough,vegan,None,None,123,Anxious
+1051,Kelli,Fleming,West Seanton,vegan,Type 2 Diabetes,Joint Pain (knee),138,Anxious
+1052,Stephanie,Nelson,Port Karen,vegan,None,Back Pain (chronic),136,Neutral
+1053,Stephanie,Jackson,East Laura,non-vegetarian,None,Back Pain (chronic),140,Excited
+1054,Matthew,Mcgee,Davenportburgh,vegan,None,Mobility Issues (mild),130,Tired
+1055,Sarah,Taylor,Lake Corey,vegetarian,None,Back Pain (chronic),162,Neutral
+1056,Alexandra,Smith,Kimberg,vegan,Type 2 Diabetes,Back Pain (chronic),138,Excited
+1057,Christine,Villegas,South Michaelberg,non-vegetarian,High Cholesterol,Swallowing Difficulties,129,Excited
+1058,Christopher,Pearson,Woodmouth,non-vegetarian,None,Mobility Issues (mild),84,Excited
+1059,Charles,Anderson,Millerfort,pescatarian,Hypothyroidism,Mobility Issues (mild),149,Anxious
+1060,Jeanette,Coleman,South Jeffrey,pescatarian,Hypertension,Mobility Issues (mild),123,Neutral
+1061,Kristin,Davis,Chavezborough,vegetarian,High Cholesterol,Mobility Issues (mild),166,Happy
+1062,Trevor,Anderson,South Monica,vegetarian,None,Joint Pain (knee),84,Anxious
+1063,Austin,Moore,Lake Zoe,vegetarian,Hypothyroidism,Mobility Issues (mild),152,Happy
+1064,Amber,Owens,Douglasfort,vegetarian,None,None,127,Neutral
+1065,Melissa,Grimes,Justinstad,vegetarian,Type 2 Diabetes,Back Pain (chronic),83,Neutral
+1066,Amy,Sanchez,New Chris,pescatarian,None,None,144,Tired
+1067,Tiffany,Wilson,Lake Theresa,vegan,Type 2 Diabetes,Mobility Issues (mild),159,Anxious
+1068,Paula,Contreras,South Lydia,vegetarian,High Cholesterol,Mobility Issues (mild),165,Stressed
+1069,Janice,Sullivan,South Carl,non-vegetarian,None,Swallowing Difficulties,102,Tired
+1070,Brenda,Garcia,East Johnnyview,vegan,None,Back Pain (chronic),179,Tired
+1071,James,Scott,East Pamelaland,pescatarian,None,Joint Pain (knee),152,Neutral
+1072,Carol,Ramirez,North Michaelville,non-vegetarian,None,Swallowing Difficulties,139,Excited
+1073,Mackenzie,Pineda,Danielview,vegetarian,None,Joint Pain (knee),172,Happy
+1074,April,Perry,New Christinaland,vegetarian,None,Joint Pain (knee),154,Happy
+1075,Crystal,Mitchell,Franklinmouth,non-vegetarian,None,None,105,Happy
+1076,Maria,Frank,Thomasberg,pescatarian,None,Back Pain (chronic),103,Neutral
+1077,Catherine,Kennedy,Port Zachary,vegetarian,Hypothyroidism,Joint Pain (knee),92,Anxious
+1078,Victoria,Mejia,Michaelport,non-vegetarian,None,Mobility Issues (mild),98,Happy
+1079,Matthew,Davis,Lake Jerry,pescatarian,None,None,123,Happy
+1080,Amanda,Cannon,East Tracy,vegetarian,Type 2 Diabetes,Back Pain (chronic),150,Stressed
+1081,Brenda,Nunez,South William,pescatarian,None,None,130,Happy
+1082,Michael,Reed,West Katrina,vegan,None,Back Pain (chronic),97,Anxious
+1083,Eric,Herring,Tamaraton,vegan,None,Joint Pain (knee),124,Neutral
+1084,John,Cochran,South Joel,non-vegetarian,None,Swallowing Difficulties,113,Neutral
+1085,Angela,Grant,Port Christopher,vegetarian,None,Mobility Issues (mild),96,Tired
+1086,Sean,Ferguson,Bishopport,vegan,None,Back Pain (chronic),106,Stressed
+1087,Ryan,Bowman,Kellyberg,pescatarian,None,Back Pain (chronic),129,Neutral
+1088,Kathy,Rodgers,Gonzalezfurt,non-vegetarian,None,Mobility Issues (mild),128,Happy
+1089,Andrew,Williams,South Brianaton,vegetarian,None,Back Pain (chronic),162,Excited
+1090,Ian,Howard,Robertsberg,non-vegetarian,None,Joint Pain (knee),138,Tired
+1091,Timothy,Guzman,West Megan,non-vegetarian,Type 2 Diabetes,Mobility Issues (mild),167,Anxious
+1092,David,Burns,Vanessashire,vegan,Hypertension,Mobility Issues (mild),172,Tired
+1093,Lisa,Johnson,New Christineburgh,non-vegetarian,None,Mobility Issues (mild),124,Stressed
+1094,Katie,Parsons,South Jessica,non-vegetarian,None,Joint Pain (knee),136,Tired
+1095,Jeff,Hendrix,Teresahaven,non-vegetarian,None,None,119,Anxious
+1096,Sydney,Robinson,Port Amy,vegetarian,GERD,Mobility Issues (mild),159,Stressed
+1097,Shannon,Austin,Christopherland,vegan,None,Joint Pain (knee),121,Stressed
+1098,Gregory,Taylor,North Joseph,non-vegetarian,None,Mobility Issues (mild),114,Neutral
+1099,Veronica,Hall,Brownburgh,vegetarian,High Cholesterol,Mobility Issues (mild),103,Neutral
+1100,Kimberly,White,Andreastad,non-vegetarian,None,Mobility Issues (mild),350,Excited
